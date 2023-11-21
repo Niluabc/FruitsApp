@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct FruitsPaginationApp: App {
+    @AppStorage("isOnboarding") var isOnboarding: Bool = true
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if isOnboarding == true {
+                OnboardingView()
+            } else {
+                ContentView()
+            }
         }
     }
 }
